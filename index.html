@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Daily To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>📅 Daily To-Do Manager</h2>
+
+<!-- FORM -->
+<div class="form">
+    <input type="text" id="taskName" placeholder="Task Name">
+    <input type="text" id="description" placeholder="Description">
+    <input type="time" id="time">
+    <input type="date" id="date">
+    <button onclick="addOrUpdateTask()">Save Task</button>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+    <button onclick="filterTasks('all')">All</button>
+    <button onclick="filterTasks('today')">Today</button>
+    <button onclick="filterTasks('completed')">Completed</button>
+    <button onclick="filterTasks('pending')">Pending</button>
+    <div class="date-search">
+        <input type="date" id="searchDate" placeholder="Search by date">
+        <button onclick="filterTasksByDate()">Search Date</button>
+        <button onclick="clearDateFilter()">Clear</button>
+    </div>
+</div>
+
+<!-- TABLE -->
+<table>
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="taskTable"></tbody>
+</table>
+
+<!-- CHART -->
+<h3>📊 Daily Progress</h3>
+<canvas id="progressChart" height="120"></canvas>
+
+<script src="script.js"></script>
+<!-- Optional: Add bell.mp3 file in the same directory for sound alerts -->
+<audio id="bellSound" preload="auto" style="display: none;"></audio>
+
+</body>
+</html>
